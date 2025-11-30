@@ -1,0 +1,248 @@
+:root {
+    --bg: #fcfcf9;
+    --surface: #fffffd;
+    --text: #13343b;
+    --text-sub: #626c71;
+    --border: rgba(94, 82, 64, 0.18);
+    --primary: #21808d;
+    --primary-soft: #e0f3f5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--surface);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.header-title {
+    font-size: 20px;
+    margin: 0 0 12px;
+    font-weight: 600;
+}
+
+.header-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.size-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.size-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.size-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.filter-section {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-sub);
+}
+
+.filter-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 150ms;
+}
+
+.filter-btn.active {
+    background: var(--primary-soft);
+    border-color: var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* 快速導航 Grid 佈局 (4格一行) */
+.nav-quick {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.nav-btn {
+    padding: 8px 4px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+.nav-btn:hover,
+.nav-btn:active {
+    background: var(--primary-soft);
+    border-color: var(--primary);
+}
+
+#app {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.product-card {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    scroll-margin-top: 150px;
+}
+
+.product-number {
+    display: inline-block;
+    background: var(--primary-soft);
+    color: var(--primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product-title {
+    font-size: 18px;
+    margin: 0 0 4px;
+    font-weight: 600;
+}
+
+.product-subtitle {
+    font-size: 15px;
+    color: var(--text-sub);
+    margin: 0 0 8px;
+}
+
+/* 圖片固定尺寸 300x300 */
+.product-image {
+    width: 300px;
+    height: 300px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+    margin: 0 auto 12px; /* 置中 */
+}
+
+.price-row {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+.desc {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--text-sub);
+    line-height: 1.5;
+}
+
+.features {
+    font-size: 14px;
+    padding-left: 18px;
+    margin: 0;
+    color: var(--text);
+}
+
+.features li {
+    margin-bottom: 6px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-sub);
+}
+
+/* 老人家大字模式 */
+body.elderly-mode {
+    font-size: 18px;
+}
+
+body.elderly-mode .header-title {
+    font-size: 24px;
+}
+
+body.elderly-mode .filter-label {
+    font-size: 16px;
+}
+
+body.elderly-mode .filter-btn,
+body.elderly-mode .size-btn,
+body.elderly-mode .nav-btn {
+    font-size: 16px;
+    padding: 10px 16px;
+}
+
+body.elderly-mode .product-number {
+    font-size: 16px;
+}
+
+body.elderly-mode .product-title {
+    font-size: 24px;
+}
+
+body.elderly-mode .product-subtitle {
+    font-size: 18px;
+}
+
+body.elderly-mode .price-row {
+    font-size: 20px;
+}
+
+body.elderly-mode .desc,
+body.elderly-mode .features {
+    font-size: 18px;
+}
+
+body.elderly-mode .product-image {
+    width: 350px;
+    height: 350px;
+}
