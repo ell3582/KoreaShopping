@@ -1,6 +1,9 @@
 import { MainController } from './controllers/mainController.js';
 
-// 當 DOM 載入完成後初始化 App
+// 全域暴露 controller 方便 onclick 調用
+window.controller = null;
+
 document.addEventListener('DOMContentLoaded', () => {
-    new MainController();
+  window.controller = new MainController();
+  window.controller.init();
 });
